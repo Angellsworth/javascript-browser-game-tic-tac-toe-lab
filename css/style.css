@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&family=Nunito:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #92C7D3; /* Soft Sky Blue */
+    font-family: system-ui, sans-serif;
+    color: #3A2E39; /* Deep Brown for readability */
+    text-align: center;
+  }
+
+  h1 {
+    font-family: 'Satisfy', cursive;
+    font-size: 46px;
+    font-weight: bolder;
+    color: #FFF8E1; /* Light Cream */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  #message {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 10px;
+    color: #FF7B9C; /* Rosy Pink */
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    display: inline-block;
+    font-family: 'Nunito', sans-serif;
+}
+  
+  .board {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    width: 325px;
+    padding: 10px;
+    margin: 20px auto;
+    justify-content: center;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  
+  .sqr {
+    
+    background-color: #FFF8E1; /* Light Cream */
+    color: #3A2E39; /* Deep Brown */
+    border: 3px solid #3A2E39;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    aspect-ratio: 1/1;
+    font-weight: bold;
+    font-size: 64px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    border-radius: 8px; /* Soft rounded edges */
+    
+  }
+  .sqr:hover {
+    background-color: #FFD166; /* Warm Yellow Glow */
+    transform: scale(1.05);
+}
+
+#reset {
+    font-family: 'Nunito', sans-serif;
+    background-color: #FFD166; /* Warm Yellow */
+    color: #3A2E39; /* Deep Brown */
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #3A2E39;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+#reset:hover {
+    background-color: #ff7b9c; /* Rosy Pink */
+    transform: scale(1.1);
+}
+  
