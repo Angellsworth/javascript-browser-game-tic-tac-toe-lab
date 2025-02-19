@@ -13,10 +13,10 @@ const winningCombos = [
 
 /*---------------------------- Variables (state) ----------------------------*/
 // variables that track the game state
-let board;
-let turn;
-let winner;
-let tie;
+let board, turn, winner, tie;
+// let turn;
+// let winner;
+// let tie;
 
 /*------------------------ Cached Element References ------------------------*/
 //store reference to elements in the HTML
@@ -26,6 +26,9 @@ const boardEl = document.querySelector(".board"); // Board container
 const resetBtnEl = document.getElementById("reset"); // Reset button
 
 /*-------------------------------- Functions --------------------------------*/
+// Start the game
+init(); // start game
+
 // Initializes game with empty board
 function init() {
   board = ["", "", "", "", "", "", "", "", ""]; // Squares set to empty
@@ -37,19 +40,9 @@ function init() {
 
 // Update the game board and message display
 function render() {
-  updateBoard(); // Show Xs and Os on game board
-  updateMessage(); // Show whose turn it is or if some one won
-}
-
-// Update board visuals to match the game state
-function updateBoard() {
   board.forEach((square, index) => {
     squareEls[index].textContent = square;
   });
-}
-
-//Update the message display
-function updateMessage() {
   if (!winner && !tie) {
     messageEl.textContent = `Player ${turn}'s turn.`; //Show whose turn
   } else if (tie) {
@@ -59,24 +52,16 @@ function updateMessage() {
   }
 }
 
-// Handle click event of square
 function handleClick(event) {
-  const squareIndex = event.target.id; //get the index of clicked square
-  if (board[squareIndex] !== "" || winner) {
-    return; //stop if the square is already taken or if there is a winner
-  }
-  placePiece(squareIndex); //place your x or o
-  checkForWinner(); // Check if there is a winner
-  checkForTie(); // Check for a tie
-  switchPlayerTurn(); // Switch players
-  render(); // Updates both updateBoard and updateMessage
-  //   updateBoard(); // Update the board to current play
-  //   updateMessage(); // Update the message to current play
-}
+  const squareIndex = event.target.id;
+  if (board[squareIndex] !== "" || winner) return; // Stop if taken or game is over
 
-// Place the players X or O on board
-function placePiece(index) {
-  board[index] = turn; //this will update the board with X or O
+  board[squareIndex] = turn; // Directly place X or O on the board
+
+  checkForWinner();
+  checkForTie();
+  switchPlayerTurn();
+  render();
 }
 
 // Check if there is a winner
@@ -118,6 +103,3 @@ boardEl.addEventListener("click", handleClick); //will listen for all the clicks
 
 // Listen for clicks on the reset button
 resetBtnEl.addEventListener("click", init); //resetting by calling reset function
-
-// Start the game
-init(); // start game
